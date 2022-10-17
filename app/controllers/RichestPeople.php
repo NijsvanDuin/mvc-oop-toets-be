@@ -8,7 +8,7 @@ class RichestPeople extends Controller
     // Dit is de constructor
     public function __construct()
     {
-        $this->richestPeopleModel = $this->model('RichestPerson');
+        $this->richestPeopleModel = $this->model('RichestPeople');
     }
 
     public function index()
@@ -38,5 +38,14 @@ class RichestPeople extends Controller
             'richestPeople' => $rows
         ];
         $this->view('richestpeople/index', $data);
+    }
+    public function delete($id)
+    {
+        $this->richestPeopleModel->deleteRichestPeople($id);
+        $data = [
+            'deleteStatus' => 'De rij is verwijderd'
+        ];
+        $this->view('richestpeople/delete', $data);
+        header("Refresh:3; url=" . URLROOT . "/richestpeople/index");
     }
 }
