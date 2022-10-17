@@ -33,5 +33,10 @@ class RichestPeople extends Controller
                     <td><a href='" . URLROOT . "/richestpeople/delete/$value->id'>delete</a></td>
                     </tr>";
         }
+        $data = [
+            'title' => '<h1>Rijkste mensen overzicht</h1>',
+            'richestPeople' => $rows
+        ];
+        $this->view('richestpeople/index', $data);
     }
 }
