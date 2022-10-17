@@ -9,7 +9,7 @@ class RichestPeople
         $this->db = new Database();
     }
 
-    public function getRichestPeople()
+    public function getRichestPeoples()
     {
         $this->db->query("SELECT * FROM `richestpeople`;");
         $result = $this->db->resultSet();
