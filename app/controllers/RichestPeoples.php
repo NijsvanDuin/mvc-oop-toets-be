@@ -45,6 +45,6 @@ class RichestPeoples extends Controller
             'deleteStatus' => 'De rij is verwijderd'
         ];
         $this->view('richestpeoples/delete', $data);
-        header("Refresh:3; url=" . URLROOT . "/richestpeople/index");
+        header("Refresh:3; url=" . URLROOT . "/richestpeoples/index");
     }
 }

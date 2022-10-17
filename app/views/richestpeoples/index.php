@@ -13,7 +13,7 @@ echo $data["title"];
         <th>delete</th>
     </thead>
     <tbody>
-        <?= $data['richestpeoples'] ?>
+        <?= $data['richestPeoples'] ?>
     </tbody>
 </table>
 <a href="<?= URLROOT; ?>/homepages/index">terug</a>
