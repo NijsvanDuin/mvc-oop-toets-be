@@ -11,7 +11,7 @@ class RichestPeople
 
     public function getRichestPeoples()
     {
-        $this->db->query("SELECT * FROM `richestpeople`;");
+        $this->db->query("SELECT * FROM `richestpeople`; ");
         $result = $this->db->resultSet();
         return $result;
     }

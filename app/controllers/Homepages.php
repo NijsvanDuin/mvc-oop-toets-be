@@ -1,9 +1,11 @@
 <?php
-class HomePages extends Controller {
+class HomePages extends Controller
+{
 
-  public function index() {
+  public function index()
+  {
     $data = [
-      'title' => "Homepage"
+      'title' => "Homepage MVC OOP Framework"
     ];
     $this->view('homepages/index', $data);
   }
