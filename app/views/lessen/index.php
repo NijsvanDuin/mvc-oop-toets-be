@@ -1,3 +1,4 @@
+<?php require(APPROOT . '/views/includes/header.php') ?>
 <h3><?= $data['title'] ?></h3>
 <?php
 //var_dump($data['rows']);
@@ -16,3 +17,4 @@
         <?php echo $data['rows'] ?>
     </tbody>
 </table>
+<?php require(APPROOT . '/views/includes/footer.php') ?>

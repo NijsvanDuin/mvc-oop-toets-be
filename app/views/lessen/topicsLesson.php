@@ -1,3 +1,4 @@
+<?php require(APPROOT . '/views/includes/header.php') ?>
 <h3><?= $data['title'] ?></h3>
 <h5><?= 'Datum: ' . $data['date'] . '. Tijd: ' . $data['time']; ?></h5>
 <table border='1'>
@@ -13,3 +14,4 @@
 </table>
 <br>
 <a href="<?= URLROOT; ?>/lessen/addTopic/<?= $data['lesId'] ?>"><input type="button" value="Onderwerp Toevoegen"></a>
+<?php require(APPROOT . '/views/includes/footer.php') ?>
