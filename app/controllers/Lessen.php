@@ -23,8 +23,8 @@ class Lessen extends Controller
                         <td>{$d->format('d-m-Y')}</td>
                         <td>{$d->format('H:i')}</td>
                         <td>$info->LENA</td>
-                        <td><a href=''><img src='" . URLROOT . "/img/b_help.png' alt='questionmark'></a></td>
-                        <td><a href='" . URLROOT . "/lessen/topicslesson/{$info->Id}'><img src='" . URLROOT . "/img/b_report.png' alt='topic'></a></td>
+                        <td><a href='" . URLROOT . "/Lessen/opmerking/{$info->Id}'><img src='" . URLROOT . "/img/b_help.png' alt='questionmark'></a></td>
+                        <td><a href='" . URLROOT . "/Lessen/topicslesson/{$info->Id}'><img src='" . URLROOT . "/img/b_report.png' alt='topic'></a></td>
                     </tr>";
         }
 
@@ -83,5 +83,30 @@ class Lessen extends Controller
             'lesId' => $lesId
         ];
         $this->view('lessen/addTopic', $data);
+    }
+    public function opmerking($lesId = NULL)
+    {
+        if (!$lesId) {
+            header("Location:" . URLROOT . "/lessen/index");
+        }
+
+        $les = $this->lessonModel->opmerking($lesId);
+
+        $rows = '';
+
+        foreach ($les as $value) {
+            $rows .= "<tr>
+                  <td>$value->id</td>
+                  <td>$value->Datum</td>
+                  <td>$value->Naam</td>
+                  <td>$value->Opmerking</td>
+              </tr>";
+        }
+
+        $data = [
+            'rows' => $rows
+
+        ];
+        $this->view('lessen/opmerking', $data);
     }
 }

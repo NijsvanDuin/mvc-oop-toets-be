@@ -36,4 +36,20 @@ class Les
         $this->db->bind(':topic', $post['topic'], PDO::PARAM_STR);
         return $this->db->execute();
     }
+    public function opmerking($lessonId)
+    {
+        $this->db->query("SELECT Opmerking.id, les.Datum, Leerling.Naam, Opmerking.Opmerking
+                      from Les 
+                      INNER JOIN Leerling 
+                      ON Les.LeerlingId = Leerling.Id
+                      INNER JOIN Opmerking
+                      ON Les.Id = Opmerking.LesId
+                      WHERE Les.Id = :lessonId");
+
+        $this->db->bind(':lessonId', $lessonId);
+
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
 }
